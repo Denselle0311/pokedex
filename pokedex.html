@@ -6,10 +6,30 @@
     <title>Pokedex</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="./scripts/app.js" defer></script>
+    <link rel="stylesheet" href="./styles/style.css">
 </head>
 
-<body>
-
+<body class="font-sans">
+    <div
+        class="container md min-h-[500px] mx-auto my-10 border border-solid border-1 border-sky-500 bg-lime-100 flex flex-col items-center gap-5">
+        <div id="search-container" class="min-w-[50%] max-w-[50%] relative">
+            <input type="search" role="searchbox" id="search-js"
+                class="min-w-full px-2 py-2 rounded-lg mt-2  focus:outline-none "
+                placeholder="Input your Pokemon name..">
+            <div id="list"
+                class="max-w-[100%] min-w-[100%] h-min max-h-64 py-2 px-4 absolute rounded-b-lg overflow-y-auto overflow-x-hidden hidden bg-lime-200 divide-y divide-lime-300">
+            </div>
+        </div>
+        <div id="pokedex-js"
+            class="min-h-96 min-w-64 max-w-96 max-h-80 border border-solid border-1 flex flex-col bg-white  gap-4 shadow-lg rounded-lg">
+            <div id="pokeImg-js" class="flex justify-center"></div>
+            <div id="details-js" class="h-full min-w-full"></div>
+            <div id="stats-js" class="flex w-full min-h-full mt-auto">
+                <div id="left-stats" class="w-1/2 h-full rounded-bl-lg text-center space-y-2 bg-red-300"></div>
+                <div id="right-stats" class="w-1/2 h-full rounded-br-lg text-center space-y-2 bg-purple-400"></div>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>
