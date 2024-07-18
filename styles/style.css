@@ -1,0 +1,14 @@
+input[type="search"]::-webkit-search-cancel-button {
+    -webkit-appearance: none !important;
+    height: 1em !important;
+    width: 1em !important;
+    border-radius: 50em !important;
+    background: url(https://pro.fontawesome.com/releases/v5.10.0/svgs/solid/times-circle.svg) no-repeat 50% 50% !important;
+    background-size: contain !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+  }
+  input[type="search"]:focus::-webkit-search-cancel-button {
+    opacity: .3 !important;
+    pointer-events: all !important;
+  }
