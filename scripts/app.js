@@ -108,7 +108,7 @@ async function getPokemonData(name) {
 }
 
 function getLocalStorage() {
-    const temp = localStorage.getItem('pokeNames');
+    const temp = localStorage.getItem('pokeNames') || [];
     let result;
     if(temp.length > 0) {
         const t = JSON.parse(temp);
