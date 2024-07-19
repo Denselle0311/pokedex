@@ -63,7 +63,6 @@ function searchHandler(val) {
 }
 
 function searchThisPoke(name) {
-    console.log(name, 'click')
     searchPoke.value = '';
     isLoader(true)
 
@@ -102,7 +101,6 @@ async function getPokemonData(name) {
         if(result) {
            isLoader(false);
         }
-        console.log(result)
        displayPokemon(result);
     } catch (error) {
         throw new Error(error);
