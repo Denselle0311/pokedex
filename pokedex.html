@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pokedex</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <script src="./scripts/app.js" defer></script>
     <link rel="stylesheet" href="./styles/style.css">
 </head>
@@ -21,15 +22,31 @@
             </div>
         </div>
         <div id="pokedex-js"
-            class="min-h-96 min-w-64 max-w-96 max-h-80 border border-solid border-1 flex flex-col bg-white  gap-4 shadow-lg rounded-lg">
+            class="min-h-96 min-w-64 max-w-96 max-h-80 border border-solid border-1 flex flex-col items-center bg-white  gap-4 shadow-lg rounded-lg">
             <div id="pokeImg-js" class="flex justify-center"></div>
             <div id="details-js" class="h-full min-w-full"></div>
+            <div id="loader" class="my-auto">
+                <div class="preloader-wrapper active">
+                    <div class="spinner-layer spinner-red">
+                        <div class="circle-clipper left">
+                            <div class="circle"></div>
+                        </div>
+                        <div class="gap-patch">
+                            <div class="circle"></div>
+                        </div>
+                        <div class="circle-clipper right">
+                            <div class="circle"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div id="stats-js" class="flex w-full min-h-full mt-auto">
                 <div id="left-stats" class="w-1/2 h-full rounded-bl-lg text-center space-y-2 bg-red-300"></div>
                 <div id="right-stats" class="w-1/2 h-full rounded-br-lg text-center space-y-2 bg-purple-400"></div>
             </div>
         </div>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </body>
 
 </html>
