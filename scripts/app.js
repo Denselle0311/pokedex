@@ -65,6 +65,14 @@ function searchHandler(val) {
 function searchThisPoke(name) {
     console.log(name, 'click')
     searchPoke.value = '';
+    isLoader(true)
+
+    Array.from(
+        [pokeImg,
+        details,
+        leftStats,
+        rightStats]
+    ).forEach( e => resetHtml(e));
     getPokemonData(name);
 }
 
@@ -91,8 +99,11 @@ async function getPokemonData(name) {
         const data = await fetch(`${pokeApiUrl}pokemon/${name}`);
         const result = await data.json();
 
+        if(result) {
+           isLoader(false);
+        }
         console.log(result)
-        displayPokemon(result);
+       displayPokemon(result);
     } catch (error) {
         throw new Error(error);
     }
@@ -111,10 +122,6 @@ function getLocalStorage() {
 }
 
 function updateLocalStorage(poke) {
-    pokeImg
-    details
-    leftStats
-    rightStats
     const temp = Array.from(poke);
     localStorage.setItem('pokeNames', JSON.stringify(temp));
 }
@@ -140,6 +147,7 @@ function displayPokemon(data) {
 
             type.appendChild(temp);
         })
+
     details.append(name,type);
 
     data.stats.forEach(e => {
@@ -151,15 +159,30 @@ function displayPokemon(data) {
 
         if(e.stat.name == 'hp' ||  e.stat.name == 'attack' || e.stat.name == 'defense') {
             const con = document.createElement('div');
+
             con.append(name,baseStat);
             leftStats.appendChild(con);
         } else {
             const con = document.createElement('div');
+
             con.append(name,baseStat);
             rightStats.appendChild(con);
         }
     })
-    throw new Error('fix display poke')
+}
+
+
+function resetHtml(elem) {
+    elem.innerHTML= '';
+}
+
+function isLoader(bool) {
+    const loader = document.querySelector('#loader');
+    if(bool) {
+        loader.classList.remove('hide');
+    }  else {
+        loader.classList.add('hide');
+    }
 }
 
 function handleTypeColor(type) {
@@ -205,4 +228,7 @@ function handleTypeColor(type) {
     }
 }
 
-window.onload = () => getAllPokemonName(allPokeUrl);
+window.onload = () => {
+    getAllPokemonName(allPokeUrl);
+    searchThisPoke('bulbasaur');
+};
